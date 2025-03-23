@@ -1,9 +1,9 @@
 from config.config_manager import get_or_create_config
 from config.auth import get_authenticated_service, get_service
-
 from modules.auth_and_access import auditar_auth_and_access
 from modules.devices import auditar_dispositivos
 from modules.dlp_and_sharing import auditar_drive
+from modules.audit_logs import auditar_eventos
 
 
 def main():
@@ -40,7 +40,8 @@ def main():
     # Ejecutar módulo 3 (Google Drive)
     drive_service = get_service("drive", "v3", service._http.credentials)
     auditar_drive(drive_service)
-
+    # Ejecutar módulo 4
+    auditar_eventos(service)
 
 if __name__ == "__main__":
     main()
