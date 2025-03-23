@@ -1,0 +1,14 @@
+# Entorno virtual
+venv/
+
+# Archivos de autenticación y tokens
+credentials.json
+token.pickle
+
+# Archivos temporales y de salida
+__pycache__/
+*.pyc
+data/
+
+# Archivos del sistema/macOS
+.DS_Store
