@@ -40,8 +40,11 @@ def main():
     # Ejecutar módulo 3 (Google Drive)
     drive_service = get_service("drive", "v3", service._http.credentials)
     auditar_drive(drive_service)
-    # Ejecutar módulo 4
-    auditar_eventos(service)
+
+    # Ejecutar módulo 4 (Reports API)
+    reports_service = get_service("admin", "reports_v1", service._http.credentials)
+    auditar_eventos(reports_service)
+
 
 if __name__ == "__main__":
     main()
