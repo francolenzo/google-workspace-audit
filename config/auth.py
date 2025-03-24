@@ -12,7 +12,9 @@ SCOPES = [
     'https://www.googleapis.com/auth/admin.directory.device.mobile.readonly',
     'https://www.googleapis.com/auth/admin.directory.device.chromeos.readonly',
     'https://www.googleapis.com/auth/drive.readonly',
-    'https://www.googleapis.com/auth/admin.reports.audit.readonly'
+    'https://www.googleapis.com/auth/admin.reports.audit.readonly',
+    'https://www.googleapis.com/auth/gmail.settings.basic',
+    'https://www.googleapis.com/auth/gmail.readonly'
 ]
 
 def get_authenticated_service():

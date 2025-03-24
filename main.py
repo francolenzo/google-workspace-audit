@@ -4,6 +4,9 @@ from modules.auth_and_access import auditar_auth_and_access
 from modules.devices import auditar_dispositivos
 from modules.dlp_and_sharing import auditar_drive
 from modules.audit_logs import auditar_eventos
+from modules.email_security import auditar_seguridad_email
+from modules.environment_security import auditar_configuracion_entorno
+
 
 
 def main():
@@ -44,6 +47,15 @@ def main():
     # Ejecutar módulo 4 (Reports API)
     reports_service = get_service("admin", "reports_v1", service._http.credentials)
     auditar_eventos(reports_service)
+
+    emails = [user['primaryEmail'] for user in users]
+    gmail_service = get_service("gmail", "v1", service._http.credentials)
+
+    # Ejecutar módulo 5
+    auditar_seguridad_email(gmail_service, users)
+
+    # Ejecutar módulo 6
+    auditar_configuracion_entorno(service, reports_service)
 
 
 if __name__ == "__main__":
