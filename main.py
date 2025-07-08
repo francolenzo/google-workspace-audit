@@ -6,7 +6,7 @@ from modules.dlp_and_sharing import auditar_drive
 from modules.audit_logs import auditar_eventos
 from modules.email_security import auditar_seguridad_email
 from modules.environment_security import auditar_configuracion_entorno
-
+from reporting.reporte import main as generar_reporte
 
 
 def main():
@@ -54,8 +54,11 @@ def main():
     # Ejecutar módulo 5
     auditar_seguridad_email(gmail_service, users)
 
-    # Ejecutar módulo 6
+   # Ejecutar módulo 6
     auditar_configuracion_entorno(service, reports_service)
+
+    # Generar el reporte completo al final
+    generar_reporte()   
 
 
 if __name__ == "__main__":

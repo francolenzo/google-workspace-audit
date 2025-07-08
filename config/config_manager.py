@@ -12,6 +12,8 @@ def load_config():
         return json.load(f)
 
 def save_config(data):
+    # Asegurarse de que la carpeta exista
+    os.makedirs(os.path.dirname(CONFIG_PATH), exist_ok=True)
     with open(CONFIG_PATH, "w") as f:
         json.dump(data, f, indent=4)
 
